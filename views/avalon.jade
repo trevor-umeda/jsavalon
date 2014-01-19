@@ -1,0 +1,48 @@
+script(type = 'text/javascript', src="javascripts/jquery/jquery.js" )
+script(type = 'text/javascript', src="javascripts/jquery/jquery-ui-1.8.21.custom.min.js")
+script(type = 'text/javascript', src="javascripts/jquery/jquery.loadmask.js")
+
+script(type = 'text/javascript', src='socket.io/socket.io.js' )
+script(type = "text/javascript", src="javascripts/client.js" )
+
+script(type = "text/javascript", src="javascripts/gameQuery/gameQuery.js" )
+
+script(type = "text/javascript", src="javascripts/graphics/extensions.js" )
+script(type = "text/javascript", src="javascripts/graphics/constants.js" )
+script(type = "text/javascript", src="javascripts/graphics/ui.js" )
+script(type = "text/javascript", src="javascripts/graphics/roleCards.js" )
+script(type = "text/javascript", src="javascripts/graphics/game.js" )
+script(type = "text/javascript", src="javascripts/graphics/player.js" )
+script(type = "text/javascript", src="javascripts/graphics/board.js" )
+script(type = 'text/javascript', src='javascripts/graphics/button.js' );
+script(type = 'text/javascript', src='javascripts/graphics/background.js' );
+
+script(type = "text/javascript", src="javascripts/avalon/board.js" )
+script(type = "text/javascript", src="javascripts/avalon/game.js" )
+script(type = "text/javascript", src="javascripts/avalon/player.js" )
+script(type = "text/javascript", src="javascripts/avalon/roleCards.js" )
+script(type = "text/javascript", src="javascripts/avalon-drive.js")
+script(type = "text/javascript", src="javascripts/v5debug.js")
+link(href="/stylesheets/extensions.css", media="screen", rel="stylesheet", type="text/css")
+link(href="/stylesheets/ui-lightness/jquery-ui-1.8.21.custom.css", media="screen", rel="stylesheet", type="text/css")
+link(href="/stylesheets/jquery.loadmask.css", media="screen", rel="stylesheet", type="text/css")
+
+h1= title
+#UI
+    p#numOfPlayers
+    button#startgame Start Game
+    button#quitgame Quit Game
+#display
+#dialog(style="display:none")
+    p Select a room or enter a room name to create a new one!
+    input(type="text",id="roomname")
+    select(id="roomoptions")
+    #joinroom
+    button(type="submit",onclick="RoomSelection()") Select
+    button(onclick="requestRefresh()") Refresh
+#sidebar(style="height:400px; position:absolute;width:300px; border: 3px black")
+    h2 Chat Window
+    #chat
+    input(type="text",id="chatbox")
+    button(type="submit",onclick="SendChat()") Send
+#playground
