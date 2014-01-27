@@ -49,7 +49,15 @@ Problems
 	* Too many files. They can be consolidated. Also not clear and what goes in where. 
 	* Too many random dependencies that we still don't need.
 * Too much info held in the client side? Keeps server side light but has security issues. 	
-	
+
+TODO LIST
+========
+* [] Delete unused/obsolete code
+* [] Refactor to more client/server. P2P is not ideal for this sort of game. This can prevent cheating and keep the code cleaner
+	* [X] Move and convert code to server side
+	* [] Create logic to house game objects
+	* [] Map out client server communication
+	* [] Hook Up UI.
 	
 
 	

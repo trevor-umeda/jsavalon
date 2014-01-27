@@ -30,8 +30,8 @@ link(href="/stylesheets/jquery.loadmask.css", media="screen", rel="stylesheet", 
 h1= title
 #UI
     p#numOfPlayers
-    button#startgame Start Game
-    button#quitgame Quit Game
+    button(onclick="StartGame()")#startgame Start Game
+    button(onclick="LeaveRoom()") Quit Game
 #display
 #dialog(style="display:none")
     p Select a room or enter a room name to create a new one!

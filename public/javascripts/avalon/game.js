@@ -20,7 +20,7 @@ var AvalonGame = function(){
     this.failedVotes;
     this.questSuccess;
 
-	//Create a new Game. Initialize players and a board.
+	//Create a new Game. initialize players and a board.
 	this.initialize = function(){
 //		this.phase = PHASE_PREGAME;
 		this.board = new AvalonBoard();
@@ -282,7 +282,7 @@ var AvalonGame = function(){
             this.board.turnFailure(this.currentTurn);
         }
 
-        var gameOverStatus = board.isGameOverStatus();
+        var gameOverStatus = this.board.isGameOverStatus();
         if(gameOverStatus != undefined){
             if(gameOverStatus){
                 console.log("good guys won. do something")

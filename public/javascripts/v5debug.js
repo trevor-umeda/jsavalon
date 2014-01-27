@@ -11,8 +11,8 @@ $(function(){
     $("h2").click(function () {
          var slider = $('#sidebar');
             slider.animate({
-              marginLeft: parseInt(slider.css('margin-left'),10) == ($('body').outerWidth() - 190) ?
-                  ($('body').outerWidth()-20) :($('body').outerWidth() - 190)
+              marginLeft: parseInt(slider.css('margin-left'),10) <= ($('body').outerWidth() - 190) ?
+                  ($('body').outerWidth()-20) : ($('body').outerWidth() - 190)
 
             });
            });

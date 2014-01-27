@@ -21,30 +21,9 @@ var app = module.exports = express.createServer();
 // socket.io for server-client communication
 var io = require('socket.io').listen(app);
 
-// Models communicate with the db through mongoose
-//var playerModel = require( "./models/player.js" );
-//var Player = playerModel.Player;
+//Game object.
+var Game = require("./avalon/game.js");
 
-// Models communicate with the db through mongoose
-//var commentModel = require( "./models/comment.js" );
-//var Comment = commentModel.Comment;
-
-// Password encryption use
-//var md5 = require( "MD5" );
-
-// Shop communication
-//var shopModel = require( "./models/shop.js" );
-//var Shop = shopModel.InGidioShop;
-
-// Javascript rendering engine
-//var ejs = require("ejs");
-
-// File service
-//var fs = require("fs");
-
-// Custom A/B Test Manager
-//var ABTest = require( "./models/abtest.js" );
-//var ABTestManager = ABTest.ABTestManager;
 
 /****************************
 * Useful Constants                     *
@@ -96,14 +75,19 @@ io.configure(function () {
   io.set("transports", ["xhr-polling"]);
   io.set("polling duration", 10);
 });
+
+
 /****************************
 * Room Models                               *
 *****************************/
+
+
 
 //The concept and logic for a game room is contained here.
 
 var gamerooms = function(){ 
 	this.rooms = {};
+    this.games = {};
 	this.players = {};
 	this.roomCount = 0;
 	this.FirstOpenRoom;
@@ -111,24 +95,28 @@ var gamerooms = function(){
 	this.startFlags = {};
 
     //Initialization function for the rooms.
-    this.Initialize = function(){
+    this.initialize = function(){
     		this.rooms[1] = [];
     		this.FirstOpenRoom = 1;
     		this.NextRoomId = 2;
     	}
 
     //If the room hasn't started yet then mark it down as started.
-	this.StartGame = function(room){ 
+	this.startGame = function(room){
 		if( this.startFlags[room] )
 			return false;
 		else{
 			this.startFlags[room] = true;
-			return true;
+            var myGame = new Game();
+            myGame.initialize();
+            myGame.newgame(this.rooms[room]);
+            this.games[room] = myGame;
+			return myGame.players[0];
 		}
 	}
 
     //If the room is existing and started, then finish it. Otherwise leave it alone
-	this.EndGame = function(room){ 
+	this.endGame = function(room){
 		if( !this.startFlags[room] ){ 
 			return false;
 		}
@@ -138,7 +126,7 @@ var gamerooms = function(){
 		}
 	}
 	//Return statistics on the room.
-	this.RoomStats = function( room ){
+	this.roomStats = function( room ){
         console.log(this.rooms)
         console.log(room)
 		if(this.rooms[room]){
@@ -160,25 +148,28 @@ var gamerooms = function(){
         }
         return false
     }
-    this.GetRoomHost = function(room){
+    this.getGameFromRoom = function(room){
+        return this.games[room];
+    }
+    this.getRoomHost = function(room){
         if(this.rooms[room]){
             return this.rooms[room][0]
         }
         return 0
     }
     //Find the room that a certain player is in.
-	this.GetRoom = function(player){ 
+	this.getRoom = function(player){
 		var room = this.players[player]['roomId'];
 		return room;
 	}
 
     //Place a player into a room.
-	this.JoinRoom = function(player, room){ 
+	this.joinRoom = function(player, room){
 		var aRoom;
 
         //If a player is in a room, make him leave first.
 		if( this.players[player] != undefined ){ 
-			this.LeaveRoom( player );
+			this.leaveRoom( player );
 		}
         //If no room is entered, just use the first open room available
 		if(room == undefined )
@@ -204,12 +195,12 @@ var gamerooms = function(){
 
         //If the room is full then be nice and create a new room.
 		if(this.rooms[aRoom].length == maxPerRoom){ 
-			this.CreateNewRoom();
+			this.createNewRoom();
 		}
 
 	}
     //Take the player and remove him from the room.
-    this.LeaveRoom = function(player){
+    this.leaveRoom = function(player){
     		if( this.players[player] == undefined )
     			return false;
         //Find which room the player was in and which number he was.
@@ -226,7 +217,7 @@ var gamerooms = function(){
     	}
 
     //A new room is open, set it as the first open room.
-	this.CreateNewRoom = function(){ 
+	this.createNewRoom = function(){
 		this.FirstOpenRoom = this.NextRoomId;
 		this.rooms[this.FirstOpenRoom] = [];
 		this.startFlags[this.FirstOpenRoom] = false;
@@ -245,8 +236,12 @@ var gamerooms = function(){
 }
 
 var myrooms = new gamerooms();
-myrooms.Initialize();
+myrooms.initialize();
 
+var AvalonClient = require("./avalon/client.js")
+var avalonClient = new AvalonClient()
+avalonClient.initialize()
+console.log(avalonClient.gameFunctionhandlers)
 /****************************
  * Game Rules handler ( Specific for avalon )
  ****************************/
@@ -271,13 +266,14 @@ var gameRules = function(){
 var myRules = new gameRules();
 
 
-    /****************************
+
+/****************************
 * Socket IO Response Server *
 ****************************/
 
 //The interaction between client and server is handled here.
 
-// Initialize the socket connection
+// initialize the socket connection
 io.sockets.on('connection', function(socket){
     //player id will be the id of the socket
     //This is just for clarity
@@ -290,7 +286,7 @@ io.sockets.on('connection', function(socket){
     //Once this player disconnects.
 	socket.on("disconnect", function(){
         //Remove the player from his room
-		var oldRoom = myrooms.LeaveRoom( socket.id );
+		var oldRoom = myrooms.leaveRoom( socket.id );
         console.log("Player id " + socket.id + " Disconnecting from room " +oldRoom);
 
 		var data, statData;
@@ -313,11 +309,6 @@ io.sockets.on('connection', function(socket){
 			socket.broadcast.to( "room#" + oldRoom ).emit( "left room down", data );
 			socket.emit( "left room down", data );
 			
-			// Refresh the room stats
-			statData = myrooms.RoomStats(oldRoom);
-			socket.broadcast.to( "room#" + oldRoom ).emit( "room stat down", statData );
-			socket.emit( "room stat down", statData );
-			
 			// Leave the socket
 			socket.leave( "room#" + oldRoom );
 		}
@@ -334,7 +325,7 @@ io.sockets.on('connection', function(socket){
 	// join room
 	socket.on( "join room up", function( room ){
 		// Step 0: Leave the current room (if we're in one)
-		var oldRoom = myrooms.LeaveRoom( socket.id);
+		var oldRoom = myrooms.leaveRoom( socket.id);
 		if( oldRoom ){
             console.log("Leaving room");
 			var departureData = { 'sessionId': socket.id };
@@ -344,12 +335,12 @@ io.sockets.on('connection', function(socket){
 
         console.log("joining room");
 		// Step 1: Join the room in the model
-		myrooms.JoinRoom( socket.id, room );
+		myrooms.joinRoom( socket.id, room );
 		
 		// Step 2: Join the room over socket
-		var theRoom = myrooms.GetRoom( socket.id );
+		var theRoom = myrooms.getRoom( socket.id );
 		socket.join( "room#" + theRoom );
-        var host = myrooms.GetRoomHost(room)
+        var host = myrooms.getRoomHost(room)
 		// Step 3: Announce to the world
 		var outPut = { 
 			'sessionId': socket.id,
@@ -358,12 +349,6 @@ io.sockets.on('connection', function(socket){
 		};
 		socket.broadcast.to( "room#" + theRoom ).emit( "join room down", outPut );
 		socket.emit( "join room down", outPut );
-		
-		// Step 4: Inform with channel stats also
-		var statData = myrooms.RoomStats(theRoom);
-		socket.broadcast.to( "room#" + theRoom ).emit( "room stat down", statData);
-		socket.emit( "room stat down", statData );
-
 	} );
 	
 	// leaving room
@@ -371,7 +356,7 @@ io.sockets.on('connection', function(socket){
         console.log(socket.id +" leaving room");
 
         //Have the player leave the room.
-		var oldRoom = myrooms.LeaveRoom(socket.id );
+		var oldRoom = myrooms.leaveRoom(socket.id );
 		if( oldRoom ){
 			var departureData = { 'sessionId': socket.id };
 			socket.broadcast.to( "room#" + oldRoom ).emit( "left room down", departureData );
@@ -383,51 +368,74 @@ io.sockets.on('connection', function(socket){
 
     });
     socket.on("chat up", function(data){
-            var theRoom = myrooms.GetRoom( socket.id );
+            var theRoom = myrooms.getRoom( socket.id );
             socket.broadcast.to( "room#" + theRoom ).emit( "chat down",socket.id, data["message"]);
         	socket.emit( "chat down", socket.id,data["message"] );
     });
 	// game event
-	socket.on( "game event up", function(data){ 
-		var middle = { 
+	socket.on( "game event up", function(data){
+        //Get game event info
+        var theRoom = myrooms.getRoom( data['sessionId'] );
+        var game = myrooms.getGameFromRoom(theRoom);
+        var middle = {
 			'sessionId': data['sessionId'],
 			'name': data['name'],
 			'event': data['event'],
-			'roomId': data['roomId']
+			'roomId': data['roomId'],
+            'game': game
 		};
 		console.log( "middle: " + JSON.stringify( middle ) );
+
+
+        var actions = avalonClient.handleGameEvent(middle)
+        console.log(actions)
+
+        var actions = {
+            'actions' : actions
+        }
 		if( data['roomId'] == undefined ){
-			var theRoom = myrooms.GetRoom( data['sessionId'] );
-			socket.broadcast.to( "room#" + theRoom ).emit( "game event down", middle );
+
+			socket.broadcast.to( "room#" + theRoom ).emit( "game event down", {} );
 		}
 		else{ 
-			socket.broadcast.to( "room#" + data['roomId'] ).emit( "game event down", middle );
+			socket.broadcast.to( "room#" + data['roomId'] ).emit( "game event down", {} );
 		}
-		socket.emit( "game event down", middle );
+		socket.emit( "game event down", actions );
 	});
-	
-	// sync
-	socket.on( "sync up", function( syncRatio ){ 
-		// TODO: write this
-		var syncValue;
-		socket.emit( "sync down", syncValue );	
-	});
-	
+
 	// Starting a game
 	socket.on( "start game up", function(data){
         //check if theres enough players
         console.log(data)
 		var room = data['roomId'];
-        var population = myrooms.RoomStats(room).population;
+        var population = myrooms.roomStats(room).population;
         if(population >= minPerRoom && population <= maxPerRoom){
-            var result = myrooms.StartGame( room );
+            var result = myrooms.startGame( room );
             if( result ){
-                var rules = myRules.getRulesByPopulation(population)
-                socket.broadcast.to( "room#" + room).emit( "start game down", rules );
-                socket.emit( "start game down", rules );
+
+                socket.broadcast.to( "room#" + room).emit("request start game down");
+                socket.emit( "start game down", result );
             }
         }
-	} );	
+	} );
+
+    socket.on("request game info start up",function(data){
+        var playerId = data['playerId'];
+        var room = myrooms.getRoom(playerId);
+        var game = myrooms.getGameFromRoom(room);
+        var index = game.findPlayerIndexInArray(playerId,game.players)
+        var player = game.players[index]
+       socket.emit("request game info start down", player);
+    });
+
+    socket.on("request actions up", function(data){
+        var playerId = data['playerId'];
+        var room = myrooms.getRoom(playerId);
+        var game = myrooms.getGameFromRoom(room);
+        var index = game.findPlayerIndexInArray(playerId,game.players)
+        var actions = game.GetPossibleActions(index)
+        socket.emit("request actions down", actions);
+    });
 });
 
 
