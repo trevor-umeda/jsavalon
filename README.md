@@ -44,20 +44,28 @@ Game Loop
 	 
 Problems
 =====
-* Spaghetti code. Pretty damn hard to find anything. Just cus using old code from old project. 
-	* Improperly and inconsistently named methods/variables
-	* Too many files. They can be consolidated. Also not clear and what goes in where. 
-	* Too many random dependencies that we still don't need.
-* Too much info held in the client side? Keeps server side light but has security issues. 	
+* The code for rooms and joining rooms is hard to understand and hacky.
+
+
+
+* The spaghetti code has been mostly untangled. There are less unneccessary files and alot of dead unused code has been shifted away. THe code doesn't necessarily follow all the best practices yet and some of the organization still needs to be cleaned up.
+* Alot of the game logic has been shifted to the server side now. The client side is much more secure.
 
 TODO LIST
 ========
 * [] Delete unused/obsolete code
-* [] Refactor to more client/server. P2P is not ideal for this sort of game. This can prevent cheating and keep the code cleaner
+	* [] Follow naming conventions everywhere.
+	* [] UI needs cleaning up.
+* [X] Refactor to more client/server. P2P is not ideal for this sort of game. This can prevent cheating and keep the code cleaner
 	* [X] Move and convert code to server side
-	* [] Create logic to house game objects
-	* [] Map out client server communication
-	* [] Hook Up UI.
+	* [X] Create logic to house game objects
+	* [X] Map out client server communication
+* [] Create the UI interactions for clientside.
+	* [] Create UI for choosing who is on the quest
+	* [] Create UI for voting acceptance of quest members
+	* [] Create UI for voting pass or fail
+	* [] Create board UI.
+	
 	
 
 	

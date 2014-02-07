@@ -1,4 +1,4 @@
-var MahjongGraphicsBackground = function(){ 
+var AvalonGraphicsBackground = function(){
 	// Step 1: Getting the stuff
 	this.bgtable;
 	this.bgmenubar;
@@ -26,10 +26,6 @@ var MahjongGraphicsBackground = function(){
 		} ).end(); 
 		$("#bgtable").css( "z-index", 0 );		
 		$("#bgmenubar").css( "z-index", 0 );
-		/*
-		$("#bgmenubar").mouseover( function(){ tooltip.show( "You're a faggot" ); } );
-		$("#bgmenubar").mouseout( function(){ tooltip.hide(); } );
-		*/
 		return this;
 	}
 }

@@ -36,7 +36,7 @@ $(function(){
 } );
 $(document).ready(function(){
 
-	graphics = new MahjongGraphics();
+	graphics = new AvalonGraphics();
 	graphics.initialize("playground");
 		$("#endturn").mouseover( function(){ tooltip.show( "End your turn" ); } );
 		$("#endturn").mouseleave( function(){ tooltip.hide(  ); } );

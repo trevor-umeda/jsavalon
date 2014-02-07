@@ -11,6 +11,15 @@ var socket = io.connect('http://localhost');
 //var socket = io.connect("http://jsavalon.herokuapp.com");
 var sessionId;
 var playerInfo;
+var playerVec = [];
+var nameVec = [];
+var playerNumber;
+var actions = [];
+var startFlag = false;
+var readyFlag = false;
+var playerCanDiscard = false;
+
+
 //On connection. The client will remember his socketId or his unique player Id.
 socket.on( "connection", function(id){ 
 	sessionId = id;
@@ -33,8 +42,29 @@ var currentRoom;
 // if no roomid is specified, the server puts the player into the a game randomly
 
 //Socket IO communication. These are for sending messages up to the server about joining or leaving.
-function JoinRoom( room ){
-	socket.emit( "join room up", room, function( result ){});
+
+//Fired when user clicks Join Room button.
+function RoomSelection(){
+//    alert($("#roomoptions").val());
+    var roomName = ""
+    if($("#roomname").val() !== ""){
+        roomName = $("#roomname").val()
+
+    }
+    else{
+        roomName = $("#roomoptions").val()
+    }
+    var playerName = $("#displayname").val()
+    var joinData = {
+        "roomName" : roomName,
+        'playerName' : playerName
+    }
+    JoinRoom(joinData);
+    $("#dialog").dialog("close");
+}
+
+function JoinRoom( data ){
+	socket.emit( "join room up", data, function( result ){});
 }
 
 function LeaveRoom( room ){ 
@@ -62,14 +92,8 @@ socket.on("connection down",function(rooms){
            $("#dialog #roomoptions").append(option);
     }
 });
-function RoomSelection(){
-//    alert($("#roomoptions").val());
-    if($("#roomname").val() !== ""){
-         JoinRoom($("#roomname").val());
-    }
-    else JoinRoom($("#roomoptions").val());
-   $("#dialog").dialog("close");
-}
+
+
 function SendChat(){
     PlayerChat($("#chatbox").val());
     $("#chatbox").val("");
@@ -93,15 +117,8 @@ socket.on("refresh down", function(rooms){
 });
 socket.on( "join room down", function( roomdata ){
 	currentRoom = roomdata['roomId'];
-    if( roomdata['sessionId'] == sessionId ){
-        $("#chat").append( "<p>you have joined " + roomdata['roomId'] + "</p>" );
-        $("#startgame").hide();
-        $("#quitgame").show();
-        //game.playerJoined();
-    }
-    else{
-        $("#chat").append( "<p>" + roomdata['sessionId'] + " has joined " + roomdata['roomId'] + "</p>" );
-    }
+    var name;
+    console.log(roomdata)
     if(roomdata['host'] == sessionId){
         var numOfPlayers = $("#numOfPlayers").html().split("/")[0]
         if(!numOfPlayers){
@@ -109,10 +126,21 @@ socket.on( "join room down", function( roomdata ){
         }
         numOfPlayers++;
         if(numOfPlayers >= 5 ){
-            $("#startgame").show()
+            $("#startgame").show();
         }
-        playerVec.push(roomdata['sessionId'])
+        playerVec.push(roomdata['sessionId']);
         $("#numOfPlayers").html(numOfPlayers+"/10 in room");
+    }
+    nameVec = roomdata['chatRoom'];
+    console.log(name);
+    if( roomdata['sessionId'] == sessionId ){
+        $("#chat").append( "<p>you have joined " + roomdata['name'] + "</p>" );
+        $("#startgame").hide();
+        $("#quitgame").show();
+        //game.playerJoined();
+    }
+    else{
+        $("#chat").append( "<p>" + roomdata['name'] + " has joined Room: " + roomdata['roomId'] + "</p>" );
     }
 } );
 
@@ -134,7 +162,7 @@ socket.on( "left room down", function( data ){
  * On game starting. Send which room to start and receive the note from the server.
 **********************/
 
-
+//Fired when host clicks start game
 function StartGame( room ){
 	var middle;
 	if( room == undefined ){

@@ -85,9 +85,14 @@ io.configure(function () {
 
 //The concept and logic for a game room is contained here.
 
-var gamerooms = function(){ 
+var gamerooms = function(){
+    //Holds playerIds.
 	this.rooms = {};
+    //Holds players chat names
+    this.chatRooms = {};
+    //Holds game objects
     this.games = {};
+    //Stores player info.
 	this.players = {};
 	this.roomCount = 0;
 	this.FirstOpenRoom;
@@ -164,12 +169,12 @@ var gamerooms = function(){
 	}
 
     //Place a player into a room.
-	this.joinRoom = function(player, room){
+	this.joinRoom = function(playerId, room, name){
 		var aRoom;
 
         //If a player is in a room, make him leave first.
-		if( this.players[player] != undefined ){ 
-			this.leaveRoom( player );
+		if( this.players[playerId] != undefined ){
+			this.leaveRoom( playerId );
 		}
         //If no room is entered, just use the first open room available
 		if(room == undefined )
@@ -179,19 +184,30 @@ var gamerooms = function(){
 
         //Lazy initialize the room. Set it as open and not started
 		if( this.rooms[aRoom] == undefined ){
-			this.rooms[aRoom] = [];	
+			this.rooms[aRoom] = [];
 			this.startFlags[aRoom] = false;
 		}
-
+        if(this.chatRooms[aRoom] == undefined){
+            this.chatRooms[aRoom] = [];
+        }
        //If the room is full though, put the player in a better one.
-		if(this.rooms[aRoom].length == maxPerRoom)
-			aRoom = this.FirstOpenRoom;
+		if(this.rooms[aRoom].length == maxPerRoom){
+            aRoom = this.FirstOpenRoom;
+        }
 
         //After everything is checked out alright, finally put the player into a room.
-		this.rooms[aRoom].push( player );
+		this.rooms[aRoom].push( playerId );
+        var finalName;
+        if(name && name.length > 0){
+            finalName = name;
+        }
+        else{
+            finalName = "Player " + (this.chatRooms[aRoom].length + 1);
+        }
+        this.chatRooms[aRoom].push(finalName);
 
-        //Mark the player as being put in a room as well. Let him know which room and which number he is.
-		this.players[player] = { 'roomId': aRoom, 'number': this.rooms[aRoom].length-1 };
+        //Mark the player as being put in a room as well. Let him know which room, which number he is, and name.
+		this.players[playerId] = { 'roomId': aRoom, 'number': this.rooms[aRoom].length-1, name: finalName };
 
         //If the room is full then be nice and create a new room.
 		if(this.rooms[aRoom].length == maxPerRoom){ 
@@ -208,11 +224,14 @@ var gamerooms = function(){
     		var number = this.players[player]['number'];
         //Remove the player from the room.
     		this.rooms[room].splice( number, 1 );
+            this.chatRooms[room].splice(number,1)
     		this.players[player] = undefined;
     		if( this.startFlags[room] == false )
     			this.FirstOpenRoom = room;
-            if(this.rooms[room].length === 0)
+            if(this.rooms[room].length === 0){
                 this.rooms[room] = undefined;
+                this.chatRooms[room] = undefined;
+            }
     		return room;
     	}
 
@@ -220,6 +239,7 @@ var gamerooms = function(){
 	this.createNewRoom = function(){
 		this.FirstOpenRoom = this.NextRoomId;
 		this.rooms[this.FirstOpenRoom] = [];
+        this.chatRooms[this.FirstOpenRoom] = [];
 		this.startFlags[this.FirstOpenRoom] = false;
 		this.NextRoomId += 1;
 	}
@@ -323,7 +343,9 @@ io.sockets.on('connection', function(socket){
     //Actions include players joining, leaving, joining games, and performing game actions.
 
 	// join room
-	socket.on( "join room up", function( room ){
+	socket.on( "join room up", function( joinData ){
+        var room = joinData['room']
+        var name = joinData['playerName']
 		// Step 0: Leave the current room (if we're in one)
 		var oldRoom = myrooms.leaveRoom( socket.id);
 		if( oldRoom ){
@@ -335,17 +357,24 @@ io.sockets.on('connection', function(socket){
 
         console.log("joining room");
 		// Step 1: Join the room in the model
-		myrooms.joinRoom( socket.id, room );
+		myrooms.joinRoom( socket.id, room, name);
 		
 		// Step 2: Join the room over socket
 		var theRoom = myrooms.getRoom( socket.id );
 		socket.join( "room#" + theRoom );
-        var host = myrooms.getRoomHost(room)
+        var host = myrooms.getRoomHost(theRoom)
 		// Step 3: Announce to the world
+
+        var chatRoom = myrooms.chatRooms[theRoom];
+
+        name = myrooms.players[socket.id].name
+
 		var outPut = { 
 			'sessionId': socket.id,
 			'roomId': theRoom,
-            'host' : host
+            'host' : host,
+            'name': name,
+            'chatRoom':chatRoom
 		};
 		socket.broadcast.to( "room#" + theRoom ).emit( "join room down", outPut );
 		socket.emit( "join room down", outPut );

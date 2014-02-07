@@ -3,12 +3,6 @@
 ***************************/
 var game = new AvalonGame();
 //Having playerVec and player array in Avalon Game object is redundant and dangerous
-var playerVec = [];
-var playerNumber;
-var actions = [];
-var startFlag = false;
-var readyFlag = false;
-var playerCanDiscard = false;
 
 
 /**************************

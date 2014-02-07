@@ -58,18 +58,21 @@ var MahjongButtonSprite = function(){
 			return;
 		else{
 		this.action = action;
-				this.sprite = staticButtonGroup.addSprite( "button" + this.buttonId, { 
-					animation: new $.gameQuery.Animation( { 
-						'imageURL': IMAGE_PATH + "buttons/" + this.action + ".png"
-					} ),
-					width: BUTTON_WIDTH,
-					height: BUTTON_HEIGHT,
-					posx: this.x,
-					posy: this.y,
-					posz: 99
-				} ); 
-				this.sprite = $( "#button" + this.buttonId );
-			  
-		} 
+        this.sprite = staticButtonGroup.addSprite( "button" + this.buttonId, {
+            animation: new $.gameQuery.Animation( {
+                'imageURL': IMAGE_PATH + "buttons/" + this.action + ".png"
+            } ),
+            width: BUTTON_WIDTH,
+            height: BUTTON_HEIGHT,
+            posx: this.x,
+            posy: this.y,
+            posz: 99
+            } );
+
+        this.sprite = $( "#button" + this.buttonId );
+        this.sprite.append("<div style='position: absolute; left : "+this.x+"px; top: "+this.y+"px; width: "+BUTTON_WIDTH+"px;font-weight: bold; font-size: 18pt; color: white;'>" +
+        "<span id='score'>"+2+"</span> pts</div>")
+
+        }
 	}
 } 

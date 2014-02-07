@@ -1,5 +1,5 @@
 
-var MahjongGraphicsBoard = function(){ 
+var AvalonGraphicsBoard = function(){
 	this.btileset = [];
 	
 	this.initialize = function(element){ 
@@ -30,6 +30,8 @@ var MahjongGraphicsBoard = function(){
 	this.setupButtons = function(){
 		//staticButtonGroup = $.playground().addGroup( "buttons", { width: GAME_WIDTH, height: GAME_HEIGHT } ).end();
 		//create draw button
+
+
 		drawButton = new MahjongButtonSprite();
 		drawButton.set(BUTTONS_XPOSITION,BUTTONS_YPOSITION,"draw");
 		drawButton.SetCallback( 'mouseover', function(event){ 

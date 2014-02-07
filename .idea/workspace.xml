@@ -2,73 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c157a2fa-6252-4579-a185-4656b161d15f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/avalon/board.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/avalon/client.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/avalon/game.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/avalon/player.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/avalon/roleCards.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/clientv2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/graphics/ui.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/avalon-drive.js" afterPath="$PROJECT_DIR$/public/javascripts/avalon-drive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/avalon.jade" afterPath="$PROJECT_DIR$/views/avalon.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/graphics/background.js" afterPath="$PROJECT_DIR$/public/javascripts/graphics/background.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/graphics/board.js" afterPath="$PROJECT_DIR$/public/javascripts/graphics/board.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/graphics/button.js" afterPath="$PROJECT_DIR$/public/javascripts/graphics/button.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/client.js" afterPath="$PROJECT_DIR$/public/javascripts/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/router/collection.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/collection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/commander/lib/commander.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/commander/lib/commander.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/compiler.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/compiler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/connect.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/connect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/cookie.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/cookie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/avalon/game.js" afterPath="$PROJECT_DIR$/public/javascripts/avalon/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/http.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/http.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/http.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/http.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/https.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/https.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/https.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/https.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/router/index.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/jade.js" afterPath="$PROJECT_DIR$/node_modules/jade/jade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/lexer.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/lexer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/literal.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/literal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/memory.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/memory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/node.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/parser.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/router/route.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/lib/static.js" afterPath="$PROJECT_DIR$/node_modules/socket.io/lib/static.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/store.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session/store.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/graphics/game.js" afterPath="$PROJECT_DIR$/public/javascripts/graphics/game.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/v5debug.js" afterPath="$PROJECT_DIR$/public/javascripts/v5debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/view/view.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/view/view.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jspandemic.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390769962415" ignored="false" />
+    <file path="/Dummy.txt" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1391302441822" ignored="false" />
     <file path="$PROJECT_DIR$/../../grails/store-admin/grails-app/views/layouts/main.gsp" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1379209957841" ignored="false" />
     <file path="/README.md" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1388457345545" ignored="false" />
-    <file path="/app.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390783696055" ignored="false" />
-    <file path="/avalon.jade" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390199671401" ignored="false" />
+    <file path="/app.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1391074134182" ignored="false" />
+    <file path="/avalon.jade" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390813821189" ignored="false" />
     <file path="/mahjong-drive.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1388644128573" ignored="false" />
-    <file path="/game.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390770723868" ignored="false" />
-    <file path="/avalon-drive.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390095754580" ignored="false" />
-    <file path="/client.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390784215382" ignored="false" />
-    <file path="/board.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390268702996" ignored="false" />
+    <file path="/game.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390809882457" ignored="false" />
+    <file path="/avalon-drive.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390814013170" ignored="false" />
+    <file path="/client.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1391074286034" ignored="false" />
+    <file path="/board.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390809864295" ignored="false" />
     <file path="/player.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390466708824" ignored="false" />
     <file path="/tiles.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1388968192928" ignored="false" />
-    <file path="$USER_HOME$/src/java/store-api/.idea/workspace.xml" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1389566311325" ignored="false" />
+    <file path="$USER_HOME$/src/java/store-api/.idea/workspace.xml" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1391074296801" ignored="false" />
     <file path="$USER_HOME$/src/java/store-api/store-purchase-server/src/main/java/com/riotgames/store/purchase/service/impl/WalletServiceImpl.java" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390110544153" ignored="false" />
     <file path="/WalletServiceImpl.java" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390110541345" ignored="false" />
     <file path="$USER_HOME$/src/java/store-api/store-purchase-server/src/test/java/com/riotgames/store/purchase/service/WalletServiceImplTest.java" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390110682770" ignored="false" />
     <file path="/WalletServiceImplTest.java" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390110639768" ignored="false" />
     <file path="/roleCards.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390269471044" ignored="false" />
+    <file path="/v5debug.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390809782111" ignored="false" />
+    <file path="/background.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1390809816204" ignored="false" />
+    <file path="/button.js" changelist="c157a2fa-6252-4579-a185-4656b161d15f" time="1391321535667" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,27 +102,16 @@
       <file leaf-file-name="avalon-drive.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/avalon-drive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="-9.230769">
+            <state line="6" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="client.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.23460026">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="v5debug.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/v5debug.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="14" selection-end="47" vertical-scroll-proportion="0.0">
+            <state line="21" column="0" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,53 +120,47 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="434" column="45" selection-start="12998" selection-end="12998" vertical-scroll-proportion="0.0">
+            <state line="340" column="28" selection-start="9800" selection-end="9800" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/avalon/game.js">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="272" column="50" selection-start="9000" selection-end="9000" vertical-scroll-proportion="0.0">
+            <state line="10" column="22" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/avalon/client.js">
+      <file leaf-file-name="roleCards.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/roleCards.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="18" selection-start="3832" selection-end="3832" vertical-scroll-proportion="0.0">
+            <state line="20" column="9" selection-start="601" selection-end="601" vertical-scroll-proportion="-0.21673004">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/avalon/game.js">
+      <file leaf-file-name="v5debug.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/v5debug.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="70" selection-start="8180" selection-end="8180" vertical-scroll-proportion="0.0">
+            <state line="31" column="46" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/avalon/board.js">
+      <file leaf-file-name="button.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/button.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="4" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/avalon/player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="71" column="19" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1391321535000" expanded="true" signature="1746:1881" placeholder="..." />
+                <marker date="1391321535000" expanded="true" signature="1746:1773" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -230,22 +183,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/avalon/tiles.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/graphics/player.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/avalon/player.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/graphics/board.js" />
         <option value="$PROJECT_DIR$/public/javascripts/avalon/board.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/v5debug.js" />
         <option value="$PROJECT_DIR$/public/javascripts/avalon/game.js" />
-        <option value="$PROJECT_DIR$/views/avalon.jade" />
         <option value="$PROJECT_DIR$/avalon/board.js" />
         <option value="$PROJECT_DIR$/avalon/roleCards.js" />
         <option value="$PROJECT_DIR$/avalon/player.js" />
         <option value="$PROJECT_DIR$/avalon/game.js" />
         <option value="$PROJECT_DIR$/avalon/client.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/v5debug.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/graphics/game.js" />
+        <option value="$PROJECT_DIR$/views/avalon.jade" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/javascripts/avalon-drive.js" />
         <option value="$PROJECT_DIR$/public/javascripts/client.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/graphics/background.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/graphics/board.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/graphics/button.js" />
       </list>
     </option>
   </component>
@@ -283,7 +236,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -366,6 +318,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="graphics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsavalon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsavalon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="avalon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -387,6 +361,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -615,63 +590,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/avalon/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="60" selection-start="7197" selection-end="7239" vertical-scroll-proportion="-21.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/avalon/board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="25" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.7439797">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="25" selection-start="4695" selection-end="4695" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/avalon/roleCards.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="5" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/avalon/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="29" column="5" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/avalon/board.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="4" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/v5debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="14" selection-end="47" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -683,47 +609,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/avalon/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="50" selection-start="9000" selection-end="9000" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/avalon/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="70" selection-start="8180" selection-end="8180" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="45" selection-start="12998" selection-end="12998" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/avalon.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0">
+        <state line="49" column="0" selection-start="2539" selection-end="2539" vertical-scroll-proportion="0.84790874" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avalon/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/avalon-drive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="-9.230769">
+        <state line="6" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/avalon/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="272" column="50" selection-start="9000" selection-end="9000" vertical-scroll-proportion="5.1711025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avalon/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="70" selection-start="8180" selection-end="8180" vertical-scroll-proportion="0.019011406">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="28" selection-start="9800" selection-end="9800" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="4" selection-start="873" selection-end="873" vertical-scroll-proportion="0.53231937">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.23460026">
+        <state line="21" column="0" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="19" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <marker date="1391321535000" expanded="true" signature="1746:1881" placeholder="..." />
+            <marker date="1391321535000" expanded="true" signature="1746:1773" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/board.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="942" selection-end="942" vertical-scroll-proportion="0.62737644">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/v5debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="46" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/graphics/roleCards.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="9" selection-start="601" selection-end="601" vertical-scroll-proportion="-0.21673004">
+          <folding />
         </state>
       </provider>
     </entry>

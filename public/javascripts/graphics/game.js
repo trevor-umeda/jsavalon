@@ -2,18 +2,12 @@
 * Drawing with gameQuery          *
 ******************************/
 
-var MahjongGraphics = function(){ 
-	this.background = new MahjongGraphicsBackground();
-	this.ui = new MahjongGraphicsUI();
-	this.board = new MahjongGraphicsBoard();
+var AvalonGraphics = function(){
+	this.background = new AvalonGraphicsBackground();
+	this.board = new AvalonGraphicsBoard();
 	this.player = new MahjongGraphicsPlayer();
 	
-	this.initialize = function( element ){ 
-		// Initializing the gameQuery playground
-		/*$("#" + element).playground( { 
-			'height': GAME_HEIGHT,
-			'width': GAME_WIDTH
-		} );*/
+	this.initialize = function( element ){
 		MahjongStaticInitialization();
 		MahjongButtonInit();
 		this.background.initialize( element );
